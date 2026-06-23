@@ -20,10 +20,10 @@ https://myanimelist.net/forum/?topicid=1640096
 /* ACCÉLÉRATION DU CHARGEMENT DES NOUVEAUX ANIMÉS (LAZY LOADING) */
 .list-item {
     contain: layout style paint; 
-    content-visibility: auto; /* MAGIQUE : Coupe le rendu des animés hors-écran (virtuellement masqués) */
-    contain-intrinsic-size: 180px 283px; /* Donne la taille exacte d'une carte pour éviter les sauts de scroll */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 283px; /* CORRIGÉ : "auto" évite que le navigateur calcule tout au premier chargement */
     backface-visibility: hidden;
-    transform: translate3d(0, 0, 0); /* Force le GPU */
+    transform: translate3d(0, 0, 0); 
 }
 
 .list-table .list-table-data {
