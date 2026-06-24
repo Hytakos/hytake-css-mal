@@ -2350,3 +2350,7 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     font-weight: bold !important;
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
+
+.data.tags a {
+    display: none !important;
+}
