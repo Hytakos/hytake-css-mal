@@ -8,7 +8,7 @@ https://myanimelist.net/forum/?topicid=1640096
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Palanquin+Dark&display=swap');
-@import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelinkbefore";
+@import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelink";
 @import "https://fonts.googleapis.com/css?family=Orbitron";
 
 /* OPTIMISATION RENDU GRAPHIQUE */
