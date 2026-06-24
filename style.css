@@ -1876,11 +1876,16 @@ font-size: 0 !important;}
 {width: 25px !important;}
 
 
-div[class*="tags-"]
-{overflow: hidden;
-height: 200px;
-background: rgba(255, 255, 255, 0.9);
+div[class*="tags-"] {
+    overflow: hidden;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    display: none; /* CATHÉGORIQUEMENT CACHÉ PAR DÉFAUT */
+}
 
+/* S'AFFICHE UNIQUEMENT AU SURVOL DES TAGS */
+.data.tags:hover div[class*="tags-"] {
+    display: block !important;
 }
 
 .anime [href*="&tag="]
