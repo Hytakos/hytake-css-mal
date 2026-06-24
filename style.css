@@ -2500,8 +2500,13 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
-/* FORCE LES GENRES / TAGS À PASSER DEVANT LE FONDU NOIR DU NUMÉRO */
-.list-table .list-table-data .data.tags {
-    z-index: 10 !important;
-    position: absolute; /* Assure que le z-index soit bien pris en compte par le navigateur */
+/* FORCE LES TAGS AU PREMIER PLAN (ANTI-CACHE & FORCE BRUTE) */
+body .list-table .list-table-data .data.tags {
+    position: absolute !important;
+    z-index: 150 !important;
+}
+
+body .data.tags:hover div[class*="tags-"] {
+    display: block !important;
+    z-index: 200 !important;
 }
