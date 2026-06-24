@@ -1739,45 +1739,6 @@ font-family: 'Orbitron' !important;}
 .link.sort + a {display: none;} /* remove watch buttons */
 
 
-
-/* tags */
-
-.data.tags:before
-{margin:0;
-width: 12px !important;
-padding: 5px 0 !important;
-z-index: 10;}
-
-data.tags:hover:before
-{width: 15px;
-padding: 5px 5px 5px 4px !important;
-font-size: 1.1em;
-
-color: #fff;
-cursor: default;}
-
-.data.tags:before, .data.tags:hover:before
-{position: absolute;
-left: 50px;
-top: 0px;
-height: 15px !important;}
-
- .list-item:hover .data.tags:before
-{opacity: 1;}
-
-.data.tags
-{opacity: 1;
-height: 100%;
-width: 0;
-z-index: 25;}
-
-.data.tags *
-{z-index: 25;
-transition: opacity .15s ease-in-out;
-color:#000;
-margin-top:25px;}
-
-
 /*List unit (VERSION OPTIMISÉE)*/
 .list-table {
     display: table-row;
