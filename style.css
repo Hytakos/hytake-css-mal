@@ -2501,47 +2501,60 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
 }
 
 /* ==================================================================
-   EXORCISME DU PAVÉ BLANC + REPOSITIONNEMENT DES GENRES
+   DESACTIVATION DU MODE "MENU CACHÉ" ET NETTOYAGE TOTAL DES GENRES
    ================================================================== */
 
-/* 1. On force TOUS les conteneurs de tags à devenir 100% transparents */
-body .list-table .list-table-data .data.tags,
-body .list-table .list-table-data .data.tags div[class*="tags-"],
-body .list-table .list-table-data .data.tags span {
+/* 1. On force la boîte principale à occuper la largeur de la jaquette et à rester visible */
+body .list-table .list-table-data .data.tags {
+    position: absolute !important;
+    top: 40px !important;         /* Position verticale sur la jaquette */
+    left: 0 !important;
+    width: 180px !important;      /* Largeur stricte de ta jaquette */
+    height: auto !important;      /* Annule le 'height: 100%' d'origine */
+    display: block !important;
+    text-align: center !important;
+    z-index: 150 !important;
+    pointer-events: none;         /* Permet de cliquer sur la jaquette à travers la boîte */
+}
+
+/* 2. On force la sous-boîte (l'ancien pavé blanc) à être TOUJOURS visible et 100% transparente */
+body .list-table .list-table-data .data.tags div[class*="tags-"] {
+    display: block !important;    /* Annule le 'display: none' qui cachait tout par défaut */
+    height: auto !important;      /* Annule le 'height: 200px' qui créait un énorme bug de vide */
     background: transparent !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
 
-/* 2. On extermine les "calques fantômes" générateurs de blanc du thème d'origine */
+/* 3. On extermine les marges d'origine de 25px qui décalaient tout vers le bas */
+body .list-table .list-table-data .data.tags * {
+    margin-top: 0 !important;     /* Supprime le décalage infernal */
+    background: transparent !important;
+}
+
+/* 4. On fait disparaître la petite icône de tag d'origine qui flotte au milieu */
 body .list-table .list-table-data .data.tags::before,
-body .list-table .list-table-data .data.tags::after,
-body .list-table .list-table-data .data.tags div::before,
-body .list-table .list-table-data .data.tags div::after {
+body .list-table .list-table-data .data.tags::after {
     display: none !important;
     content: none !important;
 }
 
-/* 3. On place la zone de texte en haut de l'affiche */
-body .list-table .list-table-data .data.tags {
-    display: block !important;
-    position: absolute !important;
-    top: 40px !important;      /* Juste sous le numéro #1 */
-    left: 0 !important;
-    width: 180px !important;   /* Largeur exacte de ta jaquette */
-    z-index: 150 !important;   /* Loin devant le fondu noir du bas */
-    text-align: center !important;
-    pointer-events: none;      /* ASTUCE PRO : Permet de cliquer sur l'affiche "à travers" la boîte invisible */
-}
-
-/* 4. On rend les liens des genres cliquables, blancs, et nets */
+/* 5. Style final des mots (blancs, nets et lisibles sur n'importe quelle jaquette) */
 body .list-table .list-table-data .data.tags a {
-    pointer-events: auto;      /* Réactive le clic uniquement sur les lettres */
-    color: #ffffff !important;
-    text-shadow: 1px 1px 3px #000000, 0 0 5px #000000 !important;
+    pointer-events: auto;         /* Réactive le clic uniquement sur les lettres */
+    color: #ffffff !important;    /* Écrit en blanc */
     font-size: 10px !important;
     font-weight: bold !important;
+    font-family: 'Open Sans', sans-serif !important;
+    /* Ombre portée à 360° pour créer un contour noir parfait autour des lettres */
+    text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000 !important;
     display: inline-block !important;
-    margin: 1px 3px !important;
+    margin: 2px 4px !important;
+    padding: 0 !important;
+}
+
+/* 6. On masque le petit bouton "Edit" des tags pour garder la carte totalement propre */
+body .list-table .list-table-data .data.tags .edit {
+    display: none !important;
 }
