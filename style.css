@@ -2495,3 +2495,11 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
+/* Masquer les dates de diffusion (airing-started / airing-finished) */
+.list-table .list-table-data .data.airing-started,
+.list-table .list-table-data .data.airing-finished,
+.list-table .list-table-header .header-title.aired,
+.list-table .list-table-header .header-title.airing-started,
+.list-table .list-table-header .header-title.airing-finished {
+    display: none !important;
+}
