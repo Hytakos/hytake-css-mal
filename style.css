@@ -2495,9 +2495,23 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
-/* FORCE LES GENRES / TAGS À PASSER DEVANT LE FONDU NOIR DU NUMÉRO */
+/* RE-POSITIONNEMENT PROPRE DES GENRES (TAGS) */
 .list-table .list-table-data .data.tags {
     position: absolute !important;
-    z-index: 9999 !important;
+    top: 50px !important;    /* Descend les genres un peu plus bas que le numéro #1 du haut */
+    left: 0 !important;
+    width: 180px !important;  /* Aligné sur la largeur de ta carte */
+    height: auto !important;
+    z-index: 25 !important;   /* Passe devant TOUS les calques de fond */
     display: block !important;
+    text-align: center !important;
+    padding: 0 5px !important;
+    box-sizing: border-box !important;
+}
+
+/* Optionnel : Si les liens à l'intérieur des genres ont besoin d'être plus lisibles sur l'image */
+.list-table .list-table-data .data.tags a {
+    color: #fff !important;
+    text-shadow: 1px 1px 3px #000 !important;
+    font-size: 10px !important;
 }
