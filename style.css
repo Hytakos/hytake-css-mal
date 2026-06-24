@@ -2494,24 +2494,3 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     font-weight: bold !important;
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
-
-/* =======================================================
-   GESTION DE L'EMPILEMENT (FONDU DERRIÈRE LES GENRES)
-   ======================================================= */
-
-/* 1. On donne une priorité forte aux genres pour qu'ils s'imposent au premier plan */
-.list-table .list-table-data .data.tags {
-    z-index: 50 !important;
-}
-
-/* 2. On fait reculer le bloc des statistiques/fondus (Type, Épisodes, Score) juste en dessous */
-.list-unit .list-stats {
-    z-index: 10 !important; /* Reste devant l'affiche (qui est à 0 ou négatif) mais passe sous les genres */
-}
-
-/* 3. Sécurité : On s'assure que les liens des genres restent bien blancs et visibles */
-.list-table .list-table-data .data.tags a {
-    color: #ffffff !important;
-    font-weight: bold !important;
-    text-shadow: 1px 1px 3px #000000 !important;
-}
