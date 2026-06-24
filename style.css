@@ -2501,75 +2501,80 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
 }
 
 /* ==================================================================
-   NETTOYAGE ET HARMONISATION ORBITRON DES GENRES (TAGS)
+   SYSTÈME ORBITRON ULTIME : TAGS PERSOS + FALLBACK GENRES MAL
    ================================================================== */
 
-/* 1. ANNIHILATION DE LA COLONNE GENRE DE MAL (Anti-écrasement en haut à gauche) */
-body .list-table .list-table-data .data.genre,
-body .list-table .list-table-data .data.genres,
-body .list-table .list-table-data [class*="genre"],
-body .list-table .list-table-data .data.demographic {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    width: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* 2. Positionnement de la boîte de tes vrais Tags */
-body .list-table .list-table-data .data.tags {
+/* 1. FORCE DE FRAPPE MAXIMALE CONTRE LE THÈME DE BASE (#list-container) */
+#list-container .list-table .list-table-data .data.tags,
+#list-container .list-table .list-table-data .data.genre,
+#list-container .list-table .list-table-data .data.genres {
     position: absolute !important;
-    top: 42px !important;         /* Aligné pile sous les blocs blancs "1" et "TV" */
+    top: 42px !important;
     left: 0 !important;
-    width: 180px !important;      /* Largeur exacte de ta jaquette */
+    width: 180px !important;
     height: auto !important;
     display: block !important;
     text-align: center !important;
     z-index: 150 !important;
-    pointer-events: none;         /* Permet de cliquer à travers la boîte */
-}
-
-/* 3. Transparence totale des sous-conteneurs */
-body .list-table .list-table-data .data.tags div[class*="tags-"] {
-    display: block !important;
-    height: auto !important;
+    pointer-events: none !important;
     background: transparent !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 0 !important; /* MAGIE : Fait disparaître les virgules de MAL */
 }
 
-/* 4. Nettoyage des marges parasites de l'ancien thème */
-body .list-table .list-table-data .data.tags * {
-    margin-top: 0 !important;
-    background: transparent !important;
+/* 2. LOGIQUE INTELLIGENTE : Si un Tag perso existe, on tue le Genre officiel */
+#list-container .list-item:has(.data.tags a) .data.genre,
+#list-container .list-item:has(.data.tags a) .data.genres,
+#list-container .list-table-data:has(.data.tags a) .data.genre,
+#list-container .list-table-data:has(.data.tags a) .data.genres {
+    display: none !important;
 }
-body .list-table .list-table-data .data.tags::before,
-body .list-table .list-table-data .data.tags::after {
+
+/* 3. NETTOYAGE DES SOUS-CONTENEURS ET FOND BLANC PARASITE */
+#list-container .list-table .list-table-data .data.tags *,
+#list-container .list-table .list-table-data .data.genre *,
+#list-container .list-table .list-table-data .data.genres * {
+    background: transparent !important;
+    margin-top: 0 !important;
+}
+#list-container .list-table .list-table-data .data.tags::before,
+#list-container .list-table .list-table-data .data.tags::after,
+#list-container .list-table .list-table-data .data.genre::before,
+#list-container .list-table .list-table-data .data.genre::after {
     display: none !important;
     content: none !important;
 }
 
-/* 5. RESTAURATION D'ORBITRON ET DU STYLE DE TON THÈME */
-body .list-table .list-table-data .data.tags a {
-    pointer-events: auto;         /* Permet de cliquer sur les liens des tags */
-    font-family: 'Orbitron', sans-serif !important; /* Retour à ta police fétiche */
-    color: #ffffff !important;    /* Écrit en blanc pur */
-    font-size: 9px !important;    /* Légèrement plus petit pour que ça passe sur une ligne */
+/* 4. LE STYLE ORBITRON UNIFIÉ (Appliqué aux Tags OU aux Genres) */
+#list-container .list-table .list-table-data .data.tags a,
+#list-container .list-table .list-table-data .data.genre a,
+#list-container .list-table .list-table-data .data.genres a {
+    pointer-events: auto !important;         
+    font-family: 'Orbitron', sans-serif !important; 
+    color: #ffffff !important;
+    font-size: 10px !important;   
     font-weight: bold !important;
-    text-transform: lowercase !important; /* Tout en minuscules pour matcher ton style */
-    
-    /* Ombre portée identique au reste de ton thème pour un contour propre sans effet "baveux" */
-    text-shadow: 1px 1px 3px #000000, 0 0 5px #000000 !important;
-    
+    text-transform: lowercase !important;
+    text-shadow: 1px 1px 2px #000, 0 0 4px #000 !important;
     display: inline-block !important;
     margin: 2px 4px !important;
     padding: 0 !important;
 }
 
-/* 6. Dissimulation du bouton d'édition au survol */
-body .list-table .list-table-data .data.tags .edit {
+/* Neutralise les wrappers intermédiaires de MAL */
+#list-container .list-table .list-table-data .data.genre span,
+#list-container .list-table .list-table-data .data.genres span {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 5. MASQUAGE DE L'ÉDITION DES TAGS */
+#list-container .list-table .list-table-data .data.tags .edit,
+#list-container .list-table .list-table-data .data.tags textarea {
     display: none !important;
 }
