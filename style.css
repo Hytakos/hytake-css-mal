@@ -7,7 +7,7 @@ Learn how to customize the layout here:
 https://myanimelist.net/forum/?topicid=1640096
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght=500&family=Palanquin+Dark&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Palanquin+Dark&display=swap');
 @import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelink";
 @import "https://fonts.googleapis.com/css?family=Orbitron";
 
@@ -1246,7 +1246,7 @@ z-index: 1 !important;
     text-shadow: 0px 0px 2px #FFF;
 }
 
-/* Style de base des liens de stats (On y places la transition fluide de fond) */
+/* Style de base des liens de stats (On y place la transition fluide de fond) */
 .list-unit .list-status-title .stats a {
     color: #fff;
     padding: 8px;
@@ -2572,28 +2572,4 @@ body .list-table .list-table-data .data.tags a {
 /* 6. Dissimulation du bouton d'édition au survol */
 body .list-table .list-table-data .data.tags .edit {
     display: none !important;
-}
-
-/* ==================================================================
-   ANTI-ÉCRASEMENT : NUCLÉARISATION RADICALE DE LA COLONNE GENRES
-   ================================================================== */
-.genre, 
-.genres, 
-.data.genre, 
-.data.genres, 
-.td.genre,
-[class*="genre"],
-.data.demographic,
-[class*="demographic"] {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
-    width: 0 !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    pointer-events: none !important;
 }
