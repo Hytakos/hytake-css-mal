@@ -2505,8 +2505,17 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
    ================================================================== */
 
 /* 1. ANNIHILATION DE LA COLONNE GENRE DE MAL (Anti-écrasement en haut à gauche) */
-body .list-table .list-table-data .data.genre {
+body .list-table .list-table-data .data.genre,
+body .list-table .list-table-data .data.genres,
+body .list-table .list-table-data [class*="genre"],
+body .list-table .list-table-data .data.demographic {
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 /* 2. Positionnement de la boîte de tes vrais Tags */
