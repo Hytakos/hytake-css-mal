@@ -2494,10 +2494,3 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     font-weight: bold !important;
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
-
-/* Masquer les éléments de date et de classification dans la grille */
-.list-item .data.airing-started,
-.list-item .data.airing-finished,
-.list-item .data.rated {
-    display: none !important;
-}
