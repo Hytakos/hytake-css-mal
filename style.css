@@ -2501,60 +2501,66 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
 }
 
 /* ==================================================================
-   DESACTIVATION DU MODE "MENU CACHÉ" ET NETTOYAGE TOTAL DES GENRES
+   NETTOYAGE ET HARMONISATION ORBITRON DES GENRES (TAGS)
    ================================================================== */
 
-/* 1. On force la boîte principale à occuper la largeur de la jaquette et à rester visible */
+/* 1. ANNIHILATION DE LA COLONNE GENRE DE MAL (Anti-écrasement en haut à gauche) */
+body .list-table .list-table-data .data.genre {
+    display: none !important;
+}
+
+/* 2. Positionnement de la boîte de tes vrais Tags */
 body .list-table .list-table-data .data.tags {
     position: absolute !important;
-    top: 40px !important;         /* Position verticale sur la jaquette */
+    top: 42px !important;         /* Aligné pile sous les blocs blancs "1" et "TV" */
     left: 0 !important;
-    width: 180px !important;      /* Largeur stricte de ta jaquette */
-    height: auto !important;      /* Annule le 'height: 100%' d'origine */
+    width: 180px !important;      /* Largeur exacte de ta jaquette */
+    height: auto !important;
     display: block !important;
     text-align: center !important;
     z-index: 150 !important;
-    pointer-events: none;         /* Permet de cliquer sur la jaquette à travers la boîte */
+    pointer-events: none;         /* Permet de cliquer à travers la boîte */
 }
 
-/* 2. On force la sous-boîte (l'ancien pavé blanc) à être TOUJOURS visible et 100% transparente */
+/* 3. Transparence totale des sous-conteneurs */
 body .list-table .list-table-data .data.tags div[class*="tags-"] {
-    display: block !important;    /* Annule le 'display: none' qui cachait tout par défaut */
-    height: auto !important;      /* Annule le 'height: 200px' qui créait un énorme bug de vide */
+    display: block !important;
+    height: auto !important;
     background: transparent !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
 
-/* 3. On extermine les marges d'origine de 25px qui décalaient tout vers le bas */
+/* 4. Nettoyage des marges parasites de l'ancien thème */
 body .list-table .list-table-data .data.tags * {
-    margin-top: 0 !important;     /* Supprime le décalage infernal */
+    margin-top: 0 !important;
     background: transparent !important;
 }
-
-/* 4. On fait disparaître la petite icône de tag d'origine qui flotte au milieu */
 body .list-table .list-table-data .data.tags::before,
 body .list-table .list-table-data .data.tags::after {
     display: none !important;
     content: none !important;
 }
 
-/* 5. Style final des mots (blancs, nets et lisibles sur n'importe quelle jaquette) */
+/* 5. RESTAURATION D'ORBITRON ET DU STYLE DE TON THÈME */
 body .list-table .list-table-data .data.tags a {
-    pointer-events: auto;         /* Réactive le clic uniquement sur les lettres */
-    color: #ffffff !important;    /* Écrit en blanc */
-    font-size: 10px !important;
+    pointer-events: auto;         /* Permet de cliquer sur les liens des tags */
+    font-family: 'Orbitron', sans-serif !important; /* Retour à ta police fétiche */
+    color: #ffffff !important;    /* Écrit en blanc pur */
+    font-size: 9px !important;    /* Légèrement plus petit pour que ça passe sur une ligne */
     font-weight: bold !important;
-    font-family: 'Open Sans', sans-serif !important;
-    /* Ombre portée à 360° pour créer un contour noir parfait autour des lettres */
-    text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000 !important;
+    text-transform: lowercase !important; /* Tout en minuscules pour matcher ton style */
+    
+    /* Ombre portée identique au reste de ton thème pour un contour propre sans effet "baveux" */
+    text-shadow: 1px 1px 3px #000000, 0 0 5px #000000 !important;
+    
     display: inline-block !important;
     margin: 2px 4px !important;
     padding: 0 !important;
 }
 
-/* 6. On masque le petit bouton "Edit" des tags pour garder la carte totalement propre */
+/* 6. Dissimulation du bouton d'édition au survol */
 body .list-table .list-table-data .data.tags .edit {
     display: none !important;
 }
