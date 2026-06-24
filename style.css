@@ -2500,13 +2500,48 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
-/* FORCE LES TAGS AU PREMIER PLAN (ANTI-CACHE & FORCE BRUTE) */
-body .list-table .list-table-data .data.tags {
-    position: absolute !important;
-    z-index: 150 !important;
+/* ==================================================================
+   EXORCISME DU PAVÉ BLANC + REPOSITIONNEMENT DES GENRES
+   ================================================================== */
+
+/* 1. On force TOUS les conteneurs de tags à devenir 100% transparents */
+body .list-table .list-table-data .data.tags,
+body .list-table .list-table-data .data.tags div[class*="tags-"],
+body .list-table .list-table-data .data.tags span {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-body .data.tags:hover div[class*="tags-"] {
+/* 2. On extermine les "calques fantômes" générateurs de blanc du thème d'origine */
+body .list-table .list-table-data .data.tags::before,
+body .list-table .list-table-data .data.tags::after,
+body .list-table .list-table-data .data.tags div::before,
+body .list-table .list-table-data .data.tags div::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 3. On place la zone de texte en haut de l'affiche */
+body .list-table .list-table-data .data.tags {
     display: block !important;
-    z-index: 200 !important;
+    position: absolute !important;
+    top: 40px !important;      /* Juste sous le numéro #1 */
+    left: 0 !important;
+    width: 180px !important;   /* Largeur exacte de ta jaquette */
+    z-index: 150 !important;   /* Loin devant le fondu noir du bas */
+    text-align: center !important;
+    pointer-events: none;      /* ASTUCE PRO : Permet de cliquer sur l'affiche "à travers" la boîte invisible */
+}
+
+/* 4. On rend les liens des genres cliquables, blancs, et nets */
+body .list-table .list-table-data .data.tags a {
+    pointer-events: auto;      /* Réactive le clic uniquement sur les lettres */
+    color: #ffffff !important;
+    text-shadow: 1px 1px 3px #000000, 0 0 5px #000000 !important;
+    font-size: 10px !important;
+    font-weight: bold !important;
+    display: inline-block !important;
+    margin: 1px 3px !important;
 }
