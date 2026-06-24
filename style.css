@@ -8,7 +8,7 @@ https://myanimelist.net/forum/?topicid=1640096
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Palanquin+Dark&display=swap');
-@import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelinkbefore";
+@import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelink";
 @import "https://fonts.googleapis.com/css?family=Orbitron";
 
 /* OPTIMISATION RENDU GRAPHIQUE */
@@ -1876,11 +1876,16 @@ font-size: 0 !important;}
 {width: 25px !important;}
 
 
-div[class*="tags-"]
-{overflow: hidden;
-height: 200px;
-background: rgba(255, 255, 255, 0.9);
+div[class*="tags-"] {
+    overflow: hidden;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    display: none; /* CATHÉGORIQUEMENT CACHÉ PAR DÉFAUT */
+}
 
+/* S'AFFICHE UNIQUEMENT AU SURVOL DES TAGS */
+.data.tags:hover div[class*="tags-"] {
+    display: block !important;
 }
 
 .anime [href*="&tag="]
@@ -2495,23 +2500,54 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
-/* RE-POSITIONNEMENT PROPRE DES GENRES (TAGS) */
-.list-table .list-table-data .data.tags {
-    position: absolute !important;
-    top: 50px !important;    /* Descend les genres un peu plus bas que le numéro #1 du haut */
-    left: 0 !important;
-    width: 180px !important;  /* Aligné sur la largeur de ta carte */
-    height: auto !important;
-    z-index: 25 !important;   /* Passe devant TOUS les calques de fond */
-    display: block !important;
-    text-align: center !important;
-    padding: 0 5px !important;
-    box-sizing: border-box !important;
+/* ==================================================================
+   SYSTÈME ORBITRON : TAGS PERSOS UNIQUEMENT (GENRES MASQUÉS)
+   ================================================================== */
+
+/* 1. ON MASQUE TOTALEMENT LA COLONNE DES GENRES DE MAL */
+.list-table .list-table-data .data.genre,
+.list-table .list-table-data .data.genres {
+    display: none !important;
 }
 
-/* Optionnel : Si les liens à l'intérieur des genres ont besoin d'être plus lisibles sur l'image */
-.list-table .list-table-data .data.tags a {
-    color: #fff !important;
-    text-shadow: 1px 1px 3px #000 !important;
-    font-size: 10px !important;
+/* 2. POSITIONNEMENT DE TES TAGS PERSOS */
+#list-container .list-table .list-table-data .data.tags {
+    position: absolute !important;
+    top: 42px !important;
+    left: 0 !important;
+    width: 180px !important;
+    height: auto !important;
+    display: block !important;
+    text-align: center !important;
+    z-index: 150 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 3. NETTOYAGE DES ÉLÉMENTS DE TAGS */
+.data.tags::before, .data.tags::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 4. STYLE DU TEXTE DES TAGS (ORBITRON) */
+.data.tags a {
+    pointer-events: auto !important;         
+    font-family: 'Orbitron', sans-serif !important; 
+    color: #ffffff !important;
+    font-size: 10px !important;   
+    font-weight: bold !important;
+    text-transform: lowercase !important;
+    text-shadow: 1px 1px 2px #000, 0 0 4px #000 !important;
+    display: inline-block !important;
+    margin: 2px 4px !important;
+}
+
+/* 5. MASQUAGE DE L'ÉDITION DES TAGS */
+.data.tags .edit, .data.tags textarea {
+    display: none !important;
 }
