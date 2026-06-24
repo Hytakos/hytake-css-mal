@@ -2495,9 +2495,9 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
-/* Masquer les dates et la classification */
-.list-table-data .data.airing-started,
-.list-table-data .data.airing-finished,
-.list-table-data .data.rated {
+/* Masquer les éléments de date et de classification dans la grille */
+.list-item .data.airing-started,
+.list-item .data.airing-finished,
+.list-item .data.rated {
     display: none !important;
 }
