@@ -2495,11 +2495,8 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
-/* Nettoyage des genres pour éviter les pavés blancs */
-.data.genre {
-    position: absolute !important;
+/* FORCE LES GENRES / TAGS À PASSER DEVANT LE FONDU NOIR DU NUMÉRO */
+.list-table .list-table-data .data.tags {
     z-index: 10 !important;
-    background: transparent !important; /* Interdit les pavés blancs */
-    color: #ffffff !important;
-    text-shadow: 0 0 4px #000, 0 0 2px #000 !important; /* Rend le texte lisible sur l'image */
+    position: absolute; /* Assure que le z-index soit bien pris en compte par le navigateur */
 }
