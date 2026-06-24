@@ -2494,3 +2494,20 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     font-weight: bold !important;
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
+
+/* =======================================================
+   GESTION DE L'EMPILEMENT (FONDU DERRIÈRE LES GENRES)
+   ======================================================= */
+
+/* 1. On donne un calque ultra-prioritaire aux genres pour qu'ils Percent le fondu noir */
+.list-table .list-table-data .data.tags {
+    z-index: 90 !important;
+    position: relative; /* Indispensable pour que le navigateur prenne en compte le z-index */
+}
+
+/* 2. Sécurité : On s’assure que leurs écritures soient blanches et bien visibles par-dessus le fond */
+.list-table .list-table-data .data.tags a {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 3px #000000 !important;
+}
