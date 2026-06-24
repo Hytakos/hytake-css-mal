@@ -2501,13 +2501,17 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
 }
 
 /* ==================================================================
-   SYSTÈME ORBITRON ULTIME : TAGS PERSOS + FALLBACK GENRES MAL
+   SYSTÈME ORBITRON : TAGS PERSOS UNIQUEMENT (GENRES MASQUÉS)
    ================================================================== */
 
-/* 1. FORCE DE FRAPPE MAXIMALE CONTRE LE THÈME DE BASE (#list-container) */
-#list-container .list-table .list-table-data .data.tags,
-#list-container .list-table .list-table-data .data.genre,
-#list-container .list-table .list-table-data .data.genres {
+/* 1. ON MASQUE TOTALEMENT LA COLONNE DES GENRES DE MAL */
+.list-table .list-table-data .data.genre,
+.list-table .list-table-data .data.genres {
+    display: none !important;
+}
+
+/* 2. POSITIONNEMENT DE TES TAGS PERSOS */
+#list-container .list-table .list-table-data .data.tags {
     position: absolute !important;
     top: 42px !important;
     left: 0 !important;
@@ -2518,41 +2522,20 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     z-index: 150 !important;
     pointer-events: none !important;
     background: transparent !important;
-    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-size: 0 !important; /* MAGIE : Fait disparaître les virgules de MAL */
 }
 
-/* 2. LOGIQUE INTELLIGENTE : Si un Tag perso existe, on tue le Genre officiel */
-#list-container .list-item:has(.data.tags a) .data.genre,
-#list-container .list-item:has(.data.tags a) .data.genres,
-#list-container .list-table-data:has(.data.tags a) .data.genre,
-#list-container .list-table-data:has(.data.tags a) .data.genres {
-    display: none !important;
-}
-
-/* 3. NETTOYAGE DES SOUS-CONTENEURS ET FOND BLANC PARASITE */
-#list-container .list-table .list-table-data .data.tags *,
-#list-container .list-table .list-table-data .data.genre *,
-#list-container .list-table .list-table-data .data.genres * {
-    background: transparent !important;
-    margin-top: 0 !important;
-}
-#list-container .list-table .list-table-data .data.tags::before,
-#list-container .list-table .list-table-data .data.tags::after,
-#list-container .list-table .list-table-data .data.genre::before,
-#list-container .list-table .list-table-data .data.genre::after {
+/* 3. NETTOYAGE DES ÉLÉMENTS DE TAGS */
+.data.tags::before, .data.tags::after {
     display: none !important;
     content: none !important;
 }
 
-/* 4. LE STYLE ORBITRON UNIFIÉ (Appliqué aux Tags OU aux Genres) */
-#list-container .list-table .list-table-data .data.tags a,
-#list-container .list-table .list-table-data .data.genre a,
-#list-container .list-table .list-table-data .data.genres a {
+/* 4. STYLE DU TEXTE DES TAGS (ORBITRON) */
+.data.tags a {
     pointer-events: auto !important;         
     font-family: 'Orbitron', sans-serif !important; 
     color: #ffffff !important;
@@ -2562,19 +2545,9 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     text-shadow: 1px 1px 2px #000, 0 0 4px #000 !important;
     display: inline-block !important;
     margin: 2px 4px !important;
-    padding: 0 !important;
-}
-
-/* Neutralise les wrappers intermédiaires de MAL */
-#list-container .list-table .list-table-data .data.genre span,
-#list-container .list-table .list-table-data .data.genres span {
-    display: inline !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
 /* 5. MASQUAGE DE L'ÉDITION DES TAGS */
-#list-container .list-table .list-table-data .data.tags .edit,
-#list-container .list-table .list-table-data .data.tags textarea {
+.data.tags .edit, .data.tags textarea {
     display: none !important;
 }
