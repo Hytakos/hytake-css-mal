@@ -2494,3 +2494,12 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     font-weight: bold !important;
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
+
+/* Nettoyage des genres pour éviter les pavés blancs */
+.data.genre {
+    position: absolute !important;
+    z-index: 10 !important;
+    background: transparent !important; /* Interdit les pavés blancs */
+    color: #ffffff !important;
+    text-shadow: 0 0 4px #000, 0 0 2px #000 !important; /* Rend le texte lisible sur l'image */
+}
