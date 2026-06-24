@@ -2515,3 +2515,39 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     text-shadow: 1px 1px 3px #000 !important;
     font-size: 10px !important;
 }
+
+/* =======================================================
+   RE-POSITIONNEMENT PROPRE ET DÉFINITIF DES GENRES (TAGS)
+   ======================================================= */
+.list-table .list-table-data .data.tags {
+    display: block !important;
+    position: absolute !important;
+    
+    /* On les cale tout en haut de la carte */
+    top: 45px !important; 
+    left: 0 !important;
+    
+    /* On force le bloc à faire exactement la largeur de l'affiche */
+    width: 180px !important;
+    height: auto !important;
+    
+    /* Force le passage au premier plan devant l'image et les fondues */
+    z-index: 30 !important; 
+    
+    text-align: center !important;
+    padding: 0 8px !important;
+    box-sizing: border-box !important;
+}
+
+/* Rendre le texte des genres parfaitement visible sur l'image */
+.list-table .list-table-data .data.tags a {
+    color: #ffffff !important;
+    display: inline-block !important;
+    margin: 2px !important;
+    font-size: 10px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    
+    /* Double ombre portée ultra-nette pour détacher le texte de n'importe quelle affiche claire ou sombre */
+    text-shadow: 1px 1px 2px #000, 0 0 4px #000 !important; 
+}
