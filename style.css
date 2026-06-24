@@ -2497,6 +2497,7 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
 
 /* FORCE LES GENRES / TAGS À PASSER DEVANT LE FONDU NOIR DU NUMÉRO */
 .list-table .list-table-data .data.tags {
-    z-index: 10 !important;
-    position: absolute; /* Assure que le z-index soit bien pris en compte par le navigateur */
+    position: absolute !important;
+    z-index: 9999 !important;
+    display: block !important;
 }
