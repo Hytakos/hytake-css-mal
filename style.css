@@ -2089,9 +2089,26 @@ body[data-query*='"status":7'] {
 
 * { cursor: url(http://cur.cursors-4u.net/cursors/cur-11/cur1054.cur), progress !important;}
 
-/* */
+/*tale des Tags */
+.list-table .list-table-data .data.tags {
+    display: none !important;
+}
 
+/* Centrage et nettoyage du texte des Genres */
+.list-table .list-table-data .data.genre,
+.list-table .list-table-data .data.genres {
+    display: block !important;       /* Assure que l'élément prend toute la largeur */
+    text-align: center !important;  /* Centre le texte */
+    width: 100% !important;         /* Force l'occupation de la largeur disponible */
+    margin: 0 auto !important;      /* Centre le bloc lui-même */
+}
 
+/* Style des liens à l'intérieur du bloc genre centré */
+.list-table .list-table-data .data.genre a,
+.list-table .list-table-data .data.genres a {
+    display: inline-block !important;
+    text-align: center !important;
+}
 
  span a[href*="&tag=!"], span a[href*="&tag=%40"], span a[href*="&tag=~"] {display: none !important;}
 
