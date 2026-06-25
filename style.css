@@ -1937,15 +1937,17 @@ text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #000;
 /* add edit more */
 
 .list-table .list-table-data .data.title .add-edit-more {
-    position: relative !important; /* On change pour relatif */
-    top: auto !important;
-    left: auto !important;
-    display: flex !important;      /* Utilisation de flexbox pour centrer */
-    justify-content: center !important;
-    width: 100% !important;        /* Prend toute la largeur de la cellule */
-    margin: 5px auto !important;   /* Ajoute un peu d'espace en haut */
-    height: 25px !important;
-    z-index: 100 !important;       /* On le met au-dessus de tout */
+    top:100px;
+	left: 75px;
+   font-size:0 !important;
+   position: absolute;
+   z-index: 10 !important;
+   text-align:center !important;
+	vertical-align:middle !important;
+	width: 25px !important;
+	height: 25px !important;
+	display:block;
+  
 }
 
 
@@ -1960,13 +1962,13 @@ text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #000;
 
 .list-table .list-table-data .data.title .edit a {
 	background-image: url(http://i.imgur.com/OT1yCLP.png);
-	display: inline-block !important; /* Permet le centrage par le parent flex */
-    width: 25px !important;
-    height: 25px !important;
-    background-size: 15px 15px !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    float: none !important;           /* On enlève tout flottement */
+	display: block;
+width: 25px;
+height: 25px;
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+background-position: 50% 50%;
 }
 
 .list-table .list-table-data .data.title .more a {
