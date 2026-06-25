@@ -1937,7 +1937,7 @@ text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #000;
 /* add edit more */
 
 .list-table .list-table-data .data.title .add-edit-more {
-    top:100px;
+    top:170px;
 	left: 75px;
    font-size:0 !important;
    position: absolute;
@@ -2361,4 +2361,19 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     color: #E29B52 !important;
     font-weight: bold !important;
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
+}
+
+/* On cible le bloc statut pour forcer l'affichage du texte */
+.list-table .list-table-data .data.status.completed::before {
+    content: "COMPLETED" !important;
+    font-family: Arial, sans-serif !important; /* Utilise une police standard */
+    font-size: 12px !important;
+    color: #ffffff !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* On cache l'ancien contenu qui génère le carré si nécessaire */
+.list-table .list-table-data .data.status.completed {
+    font-size: 0 !important; /* Cache le carré d'erreur */
 }
