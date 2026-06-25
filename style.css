@@ -2363,17 +2363,10 @@ tr.list-table-data[class*="dropped"]:hover .data.image a:before,
     animation: bronze-glow 2.5s infinite ease-in-out; /* Respire en continu */
 }
 
-/* On cible le bloc statut pour forcer l'affichage du texte */
-.list-table .list-table-data .data.status.completed::before {
-    content: "COMPLETED" !important;
-    font-family: Arial, sans-serif !important; /* Utilise une police standard */
-    font-size: 12px !important;
-    color: #ffffff !important;
-    display: block !important;
-    visibility: visible !important;
+.list-table .list-table-data .data.status {
+    display: none !important;
 }
 
-/* On cache l'ancien contenu qui génère le carré si nécessaire */
-.list-table .list-table-data .data.status.completed {
-    font-size: 0 !important; /* Cache le carré d'erreur */
+.list-table .list-table-data .data.title .icon-watch2 {
+    display: none !important;
 }
