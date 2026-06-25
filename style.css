@@ -2209,23 +2209,6 @@ height: 250px !important;
 width: 178px !important;
 }
 
-/* HD COVER SETTINGS
-*/ 
-.data.image a:before
-{content: "";
-display: inline-block !important;
-position: absolute;
-width: 180px;
-height: 225px;
-background-color: rgba(0,0,0,.3);
-background-position: center !important;
-background-repeat: no-repeat !important;
-background-size: cover;
-z-index: 5;
-box-shadow: 0 0 5px black inset; 
-box-sizing: border-box;
-transition: all .2s ease-in-out;}
-
 
 /* Other Sort Options */
 .list-table .list-table-header .header-title.days, .list-table .list-table-header .header-title.licensor {
@@ -2267,36 +2250,67 @@ top:150px;
 .score-10 { color: #5effea !important; font-weight: bold !important; }
 
 /* =======================================================
-   NETTOYAGE ET FORCE BRUTE : EFFET UNIQUE DROPPED
+   1. CONTENEUR DE L'IMAGE (CORRIGE LE DÉBORDEMENT)
    ======================================================= */
-
-/* 1. ON APPLIQUE LE CONTRASTE UNIQUEMENT AU SURVOL DES ANIMÉS QUI NE SONT PAS EN DROPPED */
-.list-table-data:not(.dropped):hover .data.image a:before {
-    filter: contrast(110%) saturate(110%) !important;
-    transform: scale(1.05) !important;
+.list-table-data .data.image a {
+    display: inline-block;
+    position: relative;
+    width: 180px;
+    height: 225px;
+    overflow: hidden !important; /* Garde le zoom strictement dans la boite de 180x225 */
 }
 
-/* 2. PAR DÉFAUT : ON PASSE TOUTE LA CELLULE DE L'IMAGE DES DROPPED EN NOIR ET BLANC */
-/* (On cible .dropped qui est hérité sur les thèmes modernes de MAL ou via l'ancienne structure globale) */
+/* =======================================================
+   2. HD COVER SETTINGS (CORRIGE LE FLOU)
+   ======================================================= */
+.data.image a:before {
+    content: "";
+    display: inline-block !important;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,.3); /* Voile assombrissant par défaut */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover;
+    z-index: 5;
+    box-shadow: 0 0 5px black inset; 
+    box-sizing: border-box;
+    transition: transform .3s ease-in-out, background-color .3s ease-in-out;
+    
+    /* ANTI-FLOU : Force le navigateur à calculer le zoom proprement en 3D */
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1);
+}
+
+/* =======================================================
+   3. PAR DÉFAUT : NOIR ET BLANC SUR LES DROPPED
+   ======================================================= */
 .list-table-data.dropped .data.image,
 tr.list-table-data[class*="dropped"] .data.image,
 .list-table-data .data.status.dropped ~ .data.image {
     filter: grayscale(100%) brightness(65%) !important;
 }
 
-/* 3. AU SURVOL : TOUT DEVIENT COLORÉ AVEC TON EFFET DE CONTRASTE + LE ZOOM */
+/* =======================================================
+   4. AU SURVOL : COULEUR + ZOOM NET
+   ======================================================= */
+/* 4A. On ramène la couleur sur les dropped (sans scaler la case entière !) */
 .list-table-data.dropped:hover .data.image,
-tr.list-table-data[class*="dropped"]:hover .data.image,
+tr.list-table-data:hover .data.image,
 .list-table-data:has(.data.status.dropped):hover .data.image {
     filter: grayscale(0%) brightness(100%) !important;
 }
 
-.list-table-data.dropped:hover .data.image a:before,
-tr.list-table-data[class*="dropped"]:hover .data.image a:before,
-.list-table-data:has(.data.status.dropped):hover .data.image a:before {
-    filter: contrast(110%) saturate(110%) !important;
-    transform: scale(1.05) !important;
+/* 4B. On enlève le voile noir et on zoome l'image (avec maintien de l'anti-flou) */
+.list-table-data:hover .data.image a:before,
+tr.list-table-data:hover .data.image a:before {
+    background-color: rgba(0,0,0,0) !important;
+    transform: translateZ(0) scale(1.05) !important;
 }
+
+
 
 /* =======================================================
    ANIMATIONS CSS (À placer avant les styles)
