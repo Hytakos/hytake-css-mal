@@ -1290,8 +1290,12 @@ a:hover {
     color: #fff;
 }
 
+/* Anime Titles*/
 .list-table .list-table-data .data.title .link {
-    font-size: 17px !important;
+    overflow: scroll;
+	font-size: 16px;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
     text-decoration: none !important;
     font-family: 'Orbitron';
     font-weight: 100 !important;
