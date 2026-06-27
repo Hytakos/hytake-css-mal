@@ -1305,7 +1305,7 @@ a:hover {
 }
 
 .list-table .list-table-data:hover .data.title .link {
-    letter-spacing: 0.5px;
+    transform: scale(1.1);
     transition: all 0.1s ease 0s;
     color: #fff !important;
 }
