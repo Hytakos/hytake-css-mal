@@ -2083,6 +2083,7 @@ tr.list-table-data:hover .data.image a:before {
     pointer-events: none;
 }
 
-.list-item .data.title.clearfix .icon-watch2 {
+.list-item .data.title.clearfix .icon-watch2,
+.list-item .data.status.watching {
     display: none;
 }
