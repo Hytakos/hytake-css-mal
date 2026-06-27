@@ -9,7 +9,7 @@
 
 /* HyTaKe's version 1.0 */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Palanquin+Dark&display=swap');
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Palanquin+Dark&display=swap";
 @import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelink";
 @import "https://fonts.googleapis.com/css?family=Orbitron";
 
@@ -39,7 +39,7 @@ body, body.ownlist {
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;
-    font-family: 'Orbitron', sans-serif !important;
+	font-family: Orbitron;
 }
 
 /* ==========================================================================
@@ -670,7 +670,6 @@ a:hover {
     text-align: right;
     color: rgba(0,0,0,0.7) !important;
     font-size: 12px !important;
-    font-family: 'Orbitron';
     text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #000;
 }
 
@@ -696,7 +695,6 @@ a:hover {
 /* Menu toggle symbol with smooth transition */
 .list-menu-float:before {
     content: "≡";
-    font-family: 'Orbitron' !important;
     display: block;
     text-align: center !important;
     text-indent: 10px;
@@ -737,13 +735,16 @@ a:hover {
 
 .list-menu-float .icon-menu.profile:before {
     position: absolute;
-    width: 120px !important;
-    content: "\f007\00a0Profile";
-    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif !important;
-    margin-top: 5px !important;
-    margin-left: -65px !important;
-    color: #000;
+	display: inline-block;
+	left: -5px;
+	font-size: 1.4em;
+	white-space: nowrap;
+    width: auto;
+    content: "►\00a0\00a0Your Profile";
+    color: #555555;
     text-align: center;
+	vertical-align: center;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif !important;
 }
 
 .list-menu-float .icon-menu .text {
