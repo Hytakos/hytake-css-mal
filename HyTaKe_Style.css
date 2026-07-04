@@ -10,7 +10,7 @@
 /* HyTaKe's version 1.0 */
 
 @import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Palanquin+Dark&display=swap";
-@import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelink";
+@import "https://malscraper.azurewebsites.net/covers/all/anime/presets/dataimagelink";
 @import "https://fonts.googleapis.com/css?family=Orbitron";
 
 /* RENDERING OPTIMIZATION */
@@ -1489,9 +1489,23 @@ td.td1.borderRBL {
 }
 
 .list-table .list-table-data .data.image a {
+    display: block !important;
+    width: 180px !important;
+    height: 225px !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.list-table .list-table-data .data.image a::before,
+.list-table .list-table-data .data.image a::after {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .list-item {
@@ -1519,8 +1533,7 @@ td.td1.borderRBL {
 }
 
 .list-item .data.image img {
-    height: 100%; 
-    width: 100%;
+    display: none !important;
 }
 
 .list-item, 
@@ -1804,7 +1817,7 @@ a[href*="%C2%9"] {
 
 
 /* ==========================================================================
-   GLOBAL BACKGROUND & CUSTOM CURSOR
+   GLOBAL BACKGROUND & CUSTOM CURSOR (MINECRAFT FIRE SWORD)
    ========================================================================== */
 
 body[data-query*='"status":1'],
@@ -1819,8 +1832,8 @@ body[data-query*='"status":7'] {
     background-size: cover;
 }
 
-* {
-    cursor: url(http://cur.cursors-4u.net/cursors/cur-11/cur1054.cur), progress !important;
+html, body, * {
+    cursor: url('https://cdn.cursors-4u.net/previews/maplestory-sword-3-d5e6f0c4-32.webp') 32 32, auto !important;
 }
 
 /* ==========================================================================
@@ -1977,7 +1990,7 @@ a img {
     box-shadow: 0 0 5px black inset; 
     box-sizing: border-box;
     transition: all .2s ease-in-out;
-    scale: 1;
+    transform:scale(1);
 }
 
 .list-table-data.dropped .data.image,
