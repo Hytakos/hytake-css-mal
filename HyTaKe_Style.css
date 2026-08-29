@@ -35,7 +35,7 @@
 
 /* GLOBAL BACKGROUND */
 body, body.ownlist {
-    background-image: url("https://i.imgur.com/oSAn4Te.png") !important;
+    background-image: url("https://i.imgur.com/2ImmEsD.jpeg") !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;
@@ -135,8 +135,8 @@ body, body.ownlist {
 footer:after {
     width: 25%;
     height: 100%;
-    left: calc(48.1% + 570px);
-    background: url(https://i.imgur.com/dW0ZRZi.png) no-repeat bottom right;
+    left: calc(48.1% + 550px);
+    background: url(https://i.imgur.com/afrlmiY.png) no-repeat bottom right;]
 }
 
 
