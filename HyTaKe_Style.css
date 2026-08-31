@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap';
+
 /* ==========================================================================
    BASIC SETUP & PERFORMANCE OPTIMIZATIONS
    ========================================================================== */
@@ -8,10 +10,6 @@
 /* Guide: https://myanimelist.net/forum/?topicid=1640096 */
 
 /* HyTaKe's version 1.0 */
-
-@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Palanquin+Dark&display=swap";
-@import "https://malscraper.azurewebsites.net/covers/all/anime/presets/dataimagelink";
-@import "https://fonts.googleapis.com/css?family=Orbitron";
 
 /* RENDERING OPTIMIZATION */
 .list-table-data {
@@ -39,7 +37,7 @@ body, body.ownlist {
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;
-	font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
 }
 
 /* ==========================================================================
@@ -136,7 +134,7 @@ footer:after {
     width: 25%;
     height: 100%;
     left: calc(48.1% + 550px);
-    background: url(https://i.imgur.com/afrlmiY.png) no-repeat bottom right;]
+    background: url(https://i.imgur.com/afrlmiY.png) no-repeat bottom right;
 }
 
 
@@ -319,7 +317,7 @@ footer::after {
     font-family: 'Orbitron';
     z-index: 1101;
     border: none;
-    background-image: url(http://i.imgur.com/xD2LRjG.png);
+    background-image: url(https://i.imgur.com/xD2LRjG.png);
     background-color: rgba(0,0,0,.5);
     background-repeat: no-repeat;
     background-size: cover;
@@ -929,7 +927,7 @@ a:hover {
 .status-menu-container {
     width: 1200px;
     height: 80px;
-    background-image: url();
+    background-image: none;
     background-repeat: repeat;
     border-bottom: none;
     box-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #000;
@@ -1128,8 +1126,7 @@ a:hover {
 .list-table > tbody:nth-of-type(2n+1),
 .list-table > tbody:nth-of-type(2n) {
     background-color: transparent;
-    background-image: url();
-    background-repeat: repeat;
+    background-image: none;
 }
  
 /* ==========================================================================
@@ -1294,15 +1291,16 @@ a:hover {
 /* Anime Titles*/
 .list-table .list-table-data .data.title .link {
     overflow: scroll;
-	font-size: 16px;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
+    font-size: 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     text-decoration: none !important;
     font-family: 'Orbitron';
-    font-weight: 100 !important;
+    font-weight: 400 !important;
     transition: all 0.1s ease 0s;
     color: #fff !important;
 }
+
 
 .list-table .list-table-data:hover .data.title .link {
     transform: scale(1.02);
@@ -1533,7 +1531,19 @@ td.td1.borderRBL {
 }
 
 .list-item .data.image img {
-    display: none !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), filter 0.4s ease !important;
+}
+
+.list-table-data:hover .data.image img,
+tr.list-table-data:hover .data.image img {
+    transform: scale(1.02) !important;
 }
 
 .list-item, 
@@ -1555,21 +1565,19 @@ td.td1.borderRBL {
 }
 
 /* Image layer with zoom transition */
+/* Calque sombre par-dessus l'image */
 .data.image a:before {
     content: "";
-    display: inline-block !important;
-    position: relative;
+    display: block !important;
+    position: absolute;
     width: 180px;
     height: 225px;
     background-color: rgba(0,0,0,.3);
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover;
     z-index: 5;
     box-shadow: 0 0 5px black inset; 
     box-sizing: border-box;
-    transition: transform .2s ease-in-out !important;
-    will-change: transform;
+    transition: background-color .2s ease-in-out;
+    pointer-events: none; /* Laisse passer les clics vers l'image */
 }
 
 .list-table .list-table-data:hover .data.image a:before {
@@ -1711,7 +1719,7 @@ a[href*="%C2%9"] {
 }
 
 .list-table .list-table-data .data.title .edit a {
-    background-image: url(http://i.imgur.com/OT1yCLP.png);
+    background-image: url(https://i.imgur.com/OT1yCLP.png);
     display: block;
     width: 25px;
     height: 25px;
@@ -1722,7 +1730,7 @@ a[href*="%C2%9"] {
 }
 
 .list-table .list-table-data .data.title .more a {
-    background-image: url(http://i.imgur.com/cUAaila.png);
+    background-image: url(https://i.imgur.com/cUAaila.png);
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -1732,7 +1740,7 @@ a[href*="%C2%9"] {
 }
 
 .list-table .list-table-data .data.title .add a {
-    background-image: url(http://i.imgur.com/AoTgUAL.png);
+    background-image: url(https://i.imgur.com/AoTgUAL.png);
     display: block;
     width: 25px;
     height: 25px;
@@ -1804,7 +1812,7 @@ a[href*="%C2%9"] {
     position: absolute;
     top: 0px;
     left: 40px;
-    background-image: url("http://i.imgur.com/39cRtfK.png");
+    background-image: url("https://i.imgur.com/39cRtfK.png");
     background-position: left top;
     background-repeat: no-repeat;
     background-size: auto 50px;
