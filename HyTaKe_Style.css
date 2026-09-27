@@ -100,21 +100,21 @@ body, body.ownlist {
 }
 
 .status-menu-container .status-menu .status-button.onhold {
-    background-image:url(https://i.imgur.com/8GYNr5V.png);	
+    background-image:url(https://i.imgur.com/Fw6itjI.png);	
     left:24px !important;
 }
 .status-menu-container .status-menu .status-button.onhold:hover ,
 .status-menu-container .status-menu .status-button.onhold.on {
-    background-image:url(https://i.imgur.com/NZTNB1Q.gif);	
+    background-image:url(https://i.imgur.com/AXAK0pq.gif);	
 }
 
 .status-menu-container .status-menu .status-button.dropped {
-    background-image:url(https://i.imgur.com/7wZewyj.jpg);
+    background-image:url(https://i.imgur.com/hQJonU3.png);
     left:32px !important;
 }
 .status-menu-container .status-menu .status-button.dropped:hover,
 .status-menu-container .status-menu .status-button.dropped.on {
-    background-image:url(https://i.imgur.com/Yj3pidj.gif);
+    background-image:url(https://i.imgur.com/cTOtGXA.gif);
 }
 
 .status-menu-container .status-menu .status-button.plantowatch,
@@ -952,7 +952,7 @@ a:hover {
     vertical-align: bottom !important;
     font-size: 15px;
     font-weight: 600 !important;
-    color: #fff;
+    color: #8c6371 !important;
     width: 125px;
     height: 74px;
     z-index: 10;
@@ -961,37 +961,52 @@ a:hover {
     background-repeat: no-repeat;
     border-radius: 5px !important; 
     top: 2px;
-}
-
-/* Status buttons hover/active transitions */
-.status-menu-container .status-menu .status-button {
     box-sizing: border-box;
+    isolation: isolate; /* Isole le texte du filtre de gris de l'image */
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, text-shadow 0.3s ease-in-out !important;
 }
 
-.status-menu-container .status-menu .status-button.on {
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #000;
-    border: #fff 1px solid; 
-    box-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 4px #000, 0 0 0 #000;
-}
-
+.status-menu-container .status-menu .status-button.on,
 .status-menu-container .status-menu .status-button:hover {
-    border: #fff 1px solid; 
-    box-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 4px #000, 0 0 0 #000;
-    text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #000;
-    background-color: transparent;
-    color: #fff;
+    border: none !important; 
+    box-shadow: none !important;
+	background-color: rgba(0, 0, 0, 0.2) !important;
+	background-blend-mode: darken;
+    
+/* Neon effect */
+    color: #ebd4d8 !important; 
+    text-shadow: 0 0 4px #dca3ae, 0 0 8px #dca3ae !important;
 }
 
-.status-menu-container .status-menu .status-button.on:after, 
-.status-menu .status-button:hover:after {
-    opacity: 1;
-}
 
+.status-menu-container .status-menu .status-button:hover:after {
+    content: "";
+    display: block !important; 
+    position: absolute;
+    top: -15px; 
+    left: 5%;
+    transform: translateX(-50%); 
+    width: 35px; 
+    height: 35px; 
+    background-image: url('https://i.imgur.com/MDVDyw3.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-color: transparent !important;
+    opacity: 1 !important;
+    z-index: 20;
+    animation: bunny-bounce 0.3s ease-out;
+}
 .status-menu-container .status-menu .status-button:after {
     display: none !important;
+}
+
+/* Hairpin Animation */
+@keyframes bunny-bounce {
+    0%   { top: 0px; opacity: 0; }
+    50%  { top: -20px; opacity: 1; }
+    75%  { top: -12px; opacity: 1; }
+    100% { top: -15px; opacity: 1; }
 }
 
 /* Scrollbar styling */
