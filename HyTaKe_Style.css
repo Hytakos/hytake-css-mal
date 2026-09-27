@@ -317,11 +317,8 @@ footer::after {
     font-family: 'Orbitron';
     z-index: 1101;
     border: none;
-    background-image: url(https://i.imgur.com/i4pGUn3.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
     background-color: rgba(0,0,0,.5);
-    background-repeat: no-repeat;
-    background-size: auto auto;
-    background-position: 10% 50%;
 }
 
 #advanced-options .advanced-options-header {
