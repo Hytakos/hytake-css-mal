@@ -9,7 +9,7 @@
 /* Support: https://myanimelist.net/clubs.php?cid=19736 */
 /* Guide: https://myanimelist.net/forum/?topicid=1640096 */
 
-/* HyTaKe's version 1.0 */
+/* HyTaKe's version 1.1 */
 
 /* RENDERING OPTIMIZATION */
 .list-table-data {
@@ -269,10 +269,6 @@ footer::after {
     background-size: 100%;
     pointer-events: none;
     z-index: 3;
-}
-
-.cover-block::after {
-    display: none !important;
 }
 
 /* Status title backgrounds */
@@ -1091,9 +1087,9 @@ a:hover {
 }
 
 .list-unit .list-stats {
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(0, 0, 0, 0.8);
     margin-top: -500px !important;
-    color: #000;
+    color: #fff;
     height: 25px;
     margin: auto;
     position: absolute;
@@ -1772,23 +1768,6 @@ a[href*="%C2%9"] {
     color: #fff !important;
 }
 
-.cover-block::after {
-    height: 120px !important;
-    width: 120px !important;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    display: block !important;
-    margin-left: 57px;
-    margin-top: -70px;
-    content: "";
-    padding: 5px;
-    background-color: #fff;
-    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-    border-radius: 5px;
-    border: #fff 2px solid;
-}
-
 .cover-block::before {
     position: absolute;
     display: block !important;
@@ -1943,10 +1922,6 @@ footer {
 
 #copyright::after {
     content: "";
-}
-
-.cover-block::after {
-    opacity: 0;
 }
 
 /* ==========================================================================
