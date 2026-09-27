@@ -49,14 +49,6 @@ body, body.ownlist {
     background-image: url(https://i.imgur.com/bMWYLnz.gif);
 }
 
-/* HEADER QUOTE */
-.cover-block::before {
-    content: "Watching too many animes is my Puberty Syndrome.";
-    background-color: rgba(135, 206, 250, 0.3) !important;
-    padding: 5px 10px;
-    border-radius: 4px;
-}
-
 /* LIST UNIT BANNERS */
 .list-unit.watching .list-status-title:after,
 .list-unit.reading .list-status-title:after,
@@ -131,10 +123,19 @@ body, body.ownlist {
 
 /* FOOTER RENDER */
 footer:after {
+    content: "";
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    pointer-events: none;
+    z-index: 3;
     width: 25%;
     height: 100%;
     left: calc(48.1% + 550px);
-    background: url(https://i.imgur.com/afrlmiY.png) no-repeat bottom right;
+    background-image: url(https://i.imgur.com/afrlmiY.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 100%;
 }
 
 
@@ -248,10 +249,10 @@ footer:after {
     background-repeat: no-repeat;
     background-size: contain;
     display: block !important;
-    margin-left: 57px;
+    margin-left: 62px;
     margin-top: -280px;
-    content: "";
-    padding: 5px;
+    content: "HyTaKe";
+    padding: 10px;
     background-color: #fff;
     box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
     border-radius: 5px;
@@ -260,16 +261,6 @@ footer:after {
     z-index: 10 !important;
 }
 
-/* Footer elements */
-footer::after {
-    content: "";
-    display: block;
-    position: fixed;
-    bottom: 0px;
-    background-size: 100%;
-    pointer-events: none;
-    z-index: 3;
-}
 
 /* Status title backgrounds */
 .list-unit.watching .list-status-title:after, .list-unit.reading .list-status-title:after,
@@ -1690,7 +1681,7 @@ a[href*="%C2%9"] {
 .list-item .data.type {
     right: 5px !important;
     width: 50px !important;
-    top: 5px !important;
+    top: 0px !important;
     text-align: right !important;
     font-size: 1em;
     transition: opacity .15s ease-in-out;
@@ -1782,8 +1773,13 @@ a[href*="%C2%9"] {
     font-weight: bold;
     color: #fff !important;
 }
-
+/* HEADER QUOTE */
 .cover-block::before {
+    content: "Watching too many animes is my Puberty Syndrome.";
+	color: rgba(237,206,213, 0.7) !important;
+    background-color: rgba(237,206,213, 0.1) !important;
+    padding: 5px 10px;
+    border-radius: 4px;
     position: absolute;
     display: block !important;
     left: 0;
@@ -1792,7 +1788,6 @@ a[href*="%C2%9"] {
     bottom: 5px;
     width: 700px;
     text-align: center;
-    color: #000 !important;
     font-weight: 900;
     font-size: 18px !important;
     font-family: 'Orbitron';
